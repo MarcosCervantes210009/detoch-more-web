@@ -1,0 +1,15 @@
+ESTA ES LA VERSION NUEVA DEL REDISEÑO.
+
+IMPORTANTE:
+1. Descomprime TODO el ZIP en una carpeta nueva.
+2. NO reemplaces archivos sobre una carpeta anterior.
+3. Doble clic en: INICIAR_VERSION_NUEVA.bat
+4. Esta versión abre en: http://localhost:3015/proyectos
+
+Se usa el puerto 3015 a propósito para evitar que un servidor viejo en localhost:3000 siga mostrando el diseño anterior.
+
+COMPROBACION VISUAL:
+La página /proyectos debe iniciar con una fotografía de cápsulas a pantalla completa y el título:
+"Precisión que se integra al proceso."
+
+NO deben aparecer números 09, 10, 37, 38, etc. sobre fotografías en mosaico.

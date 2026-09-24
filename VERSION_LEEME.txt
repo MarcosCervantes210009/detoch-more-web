@@ -1,0 +1,15 @@
+DETOCH MORE — REDISEÑO VISUAL 2026 / REFERENCIA EDITORIAL
+
+Esta versión reemplaza por completo el antiguo mosaico de Proyectos.
+
+COMPROBACIÓN:
+- /proyectos inicia con una imagen de cápsulas a pantalla completa.
+- Título: "Precisión que se integra al proceso."
+- No aparecen badges 09, 10, 37, 38, 39... encima de imágenes.
+- Proyectos usa una selección de 8 fotografías, no las 48.
+- Hay animaciones de entrada de imágenes en todo el sitio.
+- Proyectos usa fondo fotográfico continuo + bloques full-bleed.
+
+PARA EVITAR VER EL SERVIDOR ANTERIOR:
+Usa INICIAR_VERSION_NUEVA.bat.
+Abre en http://localhost:3015/proyectos

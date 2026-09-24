@@ -1,0 +1,20 @@
+DETOCH MORE — cómo abrir el proyecto localmente
+
+1. Descomprime el ZIP.
+2. Instala Node.js LTS si aún no lo tienes.
+3. Ejecuta INICIAR_LOCAL.bat.
+4. El navegador abrirá http://localhost:3000.
+
+FORMULARIO DE CONTACTO
+El formulario ahora utiliza un endpoint propio (/api/contact) y SMTP.
+Para que envíe correos realmente debes copiar .env.example como .env.local y colocar las credenciales SMTP de la cuenta/proveedor de ventas@dmaq.mx.
+
+WHATSAPP
+El botón flotante ya está activo. El número se configura con NEXT_PUBLIC_WHATSAPP_NUMBER en .env.local.
+Por ahora el proyecto trae como valor provisional 525558006201; cámbialo cuando Valeria confirme el número de WhatsApp Business.
+
+PENDIENTES DE CLIENTE
+- Aviso de privacidad oficial.
+- Fotografías finales/autorizadas.
+- Logotipos de clientes y casos de éxito autorizados.
+- Enlaces oficiales de redes sociales.

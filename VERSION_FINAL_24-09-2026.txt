@@ -1,0 +1,17 @@
+DETOCH MORE — ENTREGA FINAL 24/09/2026
+
+Cambios integrados:
+- 30 fotografías editadas nuevas optimizadas para web.
+- Fotografías distribuidas en Inicio, Nosotros, Servicios, Capacidades, Aplicaciones, Calidad, Proyectos y Contacto.
+- Proyectos reconstruido sin masonry ni imágenes encimadas.
+- Fondo fotográfico continuo y secciones full-screen en Proyectos.
+- Animaciones de entrada, hover y parallax en imágenes.
+- Aviso de Privacidad Integral integrado completo en /privacidad.
+- Formulario enlazado al aviso y consentimiento promocional opcional separado.
+- Correo oficial actualizado a ventas@dmaq.mx en web, formulario, API y variables de entorno.
+- Documento legal original incluido en /legal.
+
+Para evitar abrir una versión vieja:
+1. Descomprime este ZIP en una carpeta NUEVA.
+2. Ejecuta INICIAR_ENTREGA_FINAL.bat.
+3. La versión abre en http://localhost:3018/proyectos
