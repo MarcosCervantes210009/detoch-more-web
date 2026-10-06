@@ -2,6 +2,8 @@ import "./globals.css";
 import { Header, Footer, WhatsAppFloat } from "./ui";
 import MotionLayer from "./motion";
 
+export const viewport = { width: "device-width", initialScale: 1 };
+
 export const metadata = {
   metadataBase: new URL("https://dmaq.mx"),
   title: {

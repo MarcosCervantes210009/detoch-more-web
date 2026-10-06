@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Phone, ChevronRight, Instagram, Linkedin, Facebook, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, ChevronRight, Linkedin, Facebook, MessageCircle, Menu } from "lucide-react";
 
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "525558006201";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -14,6 +14,17 @@ const nav = [
   ["Contacto", "/contacto"],
 ];
 
+const clientLogos = [
+  { src: "/client-logos/42.png", alt: "Boehringer Ingelheim" },
+  { src: "/client-logos/43.png", alt: "Silanes" },
+  { src: "/client-logos/44.png", alt: "Grimann" },
+  { src: "/client-logos/45.png", alt: "Neolpharma" },
+  { src: "/client-logos/46.png", alt: "Selder" },
+  { src: "/client-logos/47.png", alt: "Maver" },
+  { src: "/client-logos/48.png", alt: "Haleon" },
+  { src: "/client-logos/49.png", alt: "Armstrong" },
+];
+
 export function Header() {
   return (
     <header className="site-header">
@@ -25,6 +36,12 @@ export function Header() {
         <nav className="desktop-nav">
           {nav.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
         </nav>
+        <details className="mobile-menu">
+          <summary><Menu size={22} aria-hidden="true"/><span>Menú</span></summary>
+          <nav aria-label="Navegación móvil">
+            {nav.map(([label, href]) => <Link key={href} href={href}>{label}<ArrowUpRight size={15}/></Link>)}
+          </nav>
+        </details>
         <div className="nav-tools"><Link className="nav-cta" href="/contacto">Cotizar proyecto <ArrowUpRight size={16} /></Link></div>
       </div>
     </header>
@@ -78,8 +95,8 @@ export function SectionIntro({ eyebrow, title, text }) {
   return <div className="section-intro"><span className="eyebrow">{eyebrow}</span><h2>{title}</h2>{text && <p>{text}</p>}</div>;
 }
 
-export function CTA() {
-  return <section className="cta-section"><div className="container cta-inner"><div><span className="eyebrow">¿Tienes un reto de ingeniería?</span><h2>Cuéntanos qué necesitas. <em>Lo llevamos a una solución.</em></h2></div><Link href="/contacto" className="button button-light">Hablar con ingeniería <ArrowUpRight size={18}/></Link></div></section>;
+export function CTA({ compact = false }) {
+  return <section className={`cta-section${compact ? " cta-compact" : ""}`}><div className="container cta-inner"><div><span className="eyebrow">¿Tienes un reto de ingeniería?</span><h2>Cuéntanos qué necesitas. <em>Desarrollemos la solución.</em></h2></div><Link href="/contacto" className="button button-light">Hablar con ingeniería <ArrowUpRight size={18}/></Link></div></section>;
 }
 
 export function FeatureLink({ href, number, title, text }) {
@@ -89,4 +106,30 @@ export function FeatureLink({ href, number, title, text }) {
 export function ImageCard({ src, alt, eyebrow, title, text, href }) {
   const content = <><div className="image-card-media"><img src={src} alt={alt} loading="lazy"/><span className="image-card-index">DET / {eyebrow}</span></div><div className="image-card-body"><span className="eyebrow">{eyebrow}</span><h3>{title}</h3>{text && <p>{text}</p>}</div></>;
   return href ? <Link href={href} className="image-card">{content}</Link> : <article className="image-card">{content}</article>;
+}
+
+function LogoMarqueeRow({ reverse = false }) {
+  const items = [...clientLogos, ...clientLogos];
+  return (
+    <div className={`logo-marquee ${reverse ? "is-reverse" : ""}`}>
+      <div className="logo-marquee-track">
+        {items.map((logo, index) => (
+          <div className="logo-chip" key={`${logo.alt}-${index}`}>
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ClientsSection() {
+  return (
+    <section className="section clients-showcase-section" aria-label="Empresas con las que hemos colaborado">
+      <div className="container clients-showcase-head" data-reveal><h2>Experiencia trabajando para la industria farmacéutica y manufacturera.</h2></div>
+      <div className="clients-showcase-marquees">
+        <LogoMarqueeRow />
+      </div>
+    </section>
+  );
 }
