@@ -53,8 +53,8 @@ export default function Projects(){
       <div className="container">
         <div className="finalp-pair-head" data-reveal><span className="eyebrow">Herramentales y placas</span><h2>Herramentales de <em>precisión.</em></h2></div>
         <div className="finalp-pair-grid">
-          <figure className="finalp-card"><div className="finalp-card-media"><img src={img("/images/seleccion-30sep/secundarias/web28.webp")} alt="Conjunto para maquinaria farmacéutica"/></div><figcaption><strong>Conjunto para maquinaria</strong><span>Mecanizado de precisión</span></figcaption></figure>
-          <figure className="finalp-card"><div className="finalp-card-media"><img src={img("/images/seleccion-30sep/secundarias/web-18.webp")} alt="Guías de transporte de precisión"/></div><figcaption><strong>Guías de transporte</strong><span>Geometría y repetibilidad</span></figcaption></figure>
+          <figure className="finalp-card"><div className="finalp-card-media"><img src={img("/images/seleccion-30sep/secundarias/web28.webp")} alt="Componentes instalados en maquinaria"/></div></figure>
+          <figure className="finalp-card"><div className="finalp-card-media"><img src={img("/images/seleccion-30sep/secundarias/web-18.webp")} alt="Componentes de manufactura"/></div></figure>
         </div>
       </div>
     </section>
