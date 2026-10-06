@@ -43,7 +43,7 @@ function LegalContent(){
 export default function Privacy(){
   return <>
     <section className="legal-hero">
-      <img src="/images/edited/edit-26.webp" alt="Detalle de manufactura de precisión" data-motion="off"/>
+      <img src="/images/seleccion-30sep/secundarias/web50.webp" alt="Detalle de manufactura de precisión" data-motion="off"/>
       <div className="legal-hero-overlay"/>
       <div className="container legal-hero-content" data-reveal>
         <span className="eyebrow">Legal · Protección de datos</span>
