@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone, ChevronRight, Linkedin, Facebook, MessageCircle, Menu } from "lucide-react";
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "525558006201";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "525522668224";const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 const nav = [
   ["Inicio", "/"],
