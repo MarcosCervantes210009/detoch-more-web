@@ -10,7 +10,30 @@ function required(name) {
 
 export async function POST(request) {
   try {
-    const body = await request.json();
+    const contentType = request.headers.get("content-type") || "";
+    const maxFileSize = 3 * 1024 * 1024;
+    if (Number(request.headers.get("content-length") || 0) > maxFileSize + 64 * 1024) {
+      return Response.json({ message: "El archivo debe pesar como máximo 3 MB." }, { status: 413 });
+    }
+    let body;
+    let attachment;
+    if (contentType.includes("multipart/form-data")) {
+      const form = await request.formData();
+      body = Object.fromEntries([...form.entries()].filter(([key]) => key !== "archivo"));
+      body.aceptaPrivacidad = form.has("aceptaPrivacidad");
+      body.marketing = form.has("marketing");
+      const file = form.get("archivo");
+      if (file && typeof file !== "string" && file.size) {
+        if (file.size > maxFileSize) return Response.json({ message: "El archivo debe pesar como máximo 3 MB." }, { status: 413 });
+        const filename = file.name.split(/[\\/]/).pop().replace(/[\r\n\x00]/g, "").slice(0, 180);
+        if (!/\.(jpe?g|png|webp|pdf|step|stp|igs|iges|dwg|dxf|zip|txt)$/i.test(filename)) {
+          return Response.json({ message: "Adjunta una fotografía, PDF, STEP u otro formato técnico admitido." }, { status: 400 });
+        }
+        attachment = { filename, content: Buffer.from(await file.arrayBuffer()) };
+      }
+    } else {
+      body = await request.json();
+    }
     const { nombre, empresa, correo, telefono, proyecto, website, aceptaPrivacidad, marketing } = body || {};
 
     // Honeypot: bots that fill this field receive a neutral response.
@@ -38,6 +61,7 @@ export async function POST(request) {
       from,
       to,
       replyTo: correo,
+      attachments: attachment ? [attachment] : [],
       subject: `Solicitud de proyecto — ${empresa || "Nuevo contacto"}`,
       text: [
         `Nombre: ${nombre}`,
