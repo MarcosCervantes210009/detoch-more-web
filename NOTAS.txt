@@ -1,0 +1,18 @@
+DETOCH MORE — ENTREGA
+
+INICIAR EN WINDOWS
+1. Instala Node.js LTS si todavia no lo tienes.
+2. Descomprime esta carpeta y haz doble clic en "Iniciar local.bat".
+3. La primera vez, espera a que termine la instalacion de dependencias. Necesita Internet.
+4. Abre http://localhost:3000 en el navegador. Presiona Ctrl+C para detenerlo.
+
+PUBLICAR EN VERCEL
+Es un proyecto Next.js. Importa esta carpeta como proyecto mediante Git o la CLI de Vercel. Framework: Next.js; no configures un directorio de salida estatico.
+
+FORMULARIO DE CONTACTO
+Para que envie correo en produccion, configura en Vercel las variables SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_TO y MAIL_FROM. El formulario no puede enviar sin esas credenciales. Admite un archivo opcional de hasta 3 MB (fotografia, PDF, STEP, STP, IGS, IGES, DWG, DXF, ZIP o TXT), enviado como adjunto por correo.
+
+IMAGENES
+Seleccion actualizada con las carpetas Principales y Secundarias compartidas por Valeria el 30 de septiembre. Las dos portadas aparecen al inicio; las principales tienen prioridad y las secundarias sirven de apoyo. Las fotografias tienen esquinas redondeadas.
+
+Contenidos actualizados conforme al documento de correcciones de octubre de 2026.

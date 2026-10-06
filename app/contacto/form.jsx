@@ -14,15 +14,18 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    data.aceptaPrivacidad = formData.has("aceptaPrivacidad");
-    data.marketing = formData.has("marketing");
+    const file = formData.get("archivo");
+    if (file && file.size > 3 * 1024 * 1024) {
+      setStatus("error");
+      setMessage("El archivo debe pesar como máximo 3 MB.");
+      return;
+    }
+    if (!file || !file.size) formData.delete("archivo");
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       const result = await response.json();
@@ -49,7 +52,9 @@ export default function ContactForm() {
         <label>Correo<input required type="email" name="correo" placeholder="correo@empresa.com" /></label>
         <label>Teléfono<input name="telefono" placeholder="+52 ..." /></label>
       </div>
-      <label>Proyecto o necesidad<textarea required name="proyecto" rows="6" placeholder="Cuéntanos brevemente qué necesitas fabricar, rediseñar o resolver..."></textarea></label>
+      <label>Cuéntanos sobre tu proyecto<textarea required name="proyecto" rows="6" placeholder="Cuéntanos brevemente qué necesitas fabricar, rediseñar o resolver..."></textarea></label>
+
+      <label>Adjuntar archivo (opcional)<input type="file" name="archivo" accept=".jpg,.jpeg,.png,.webp,.pdf,.step,.stp,.igs,.iges,.dwg,.dxf,.zip,.txt"/><span className="attachment-help">Fotografía, PDF, STEP u otra información técnica. Máximo 3 MB.</span></label>
 
       <div className="form-consents">
         <label className="form-check"><input required type="checkbox" name="aceptaPrivacidad"/><span>He leído y acepto el <Link href="/privacidad" target="_blank">Aviso de Privacidad Integral</Link> para la atención de mi solicitud.</span></label>
