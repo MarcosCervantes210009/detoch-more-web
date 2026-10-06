@@ -2432,3 +2432,7 @@ main .section{padding-block:clamp(64px,7.5vw,96px)}
  .contact-form .form-row{grid-template-columns:minmax(0,1fr)}
  .finalp-card figcaption{overflow-wrap:anywhere}
 }
+
+/* Logos suministrados: mostrar el emblema centrado sin el margen de la fotografía. */
+.logo-chip--supplied img{width:175px;height:62px;object-fit:cover;object-position:center}
+@media(max-width:640px){.logo-chip--supplied img{width:132px;height:42px}}

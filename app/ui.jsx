@@ -16,13 +16,18 @@ const nav = [
 
 const clientLogos = [
   { src: "/client-logos/42.png", alt: "Boehringer Ingelheim" },
-  { src: "/client-logos/43.png", alt: "Silanes" },
-  { src: "/client-logos/44.png", alt: "Grimann" },
-  { src: "/client-logos/45.png", alt: "Neolpharma" },
-  { src: "/client-logos/46.png", alt: "Selder" },
-  { src: "/client-logos/47.png", alt: "Maver" },
+  { src: "/client-logos/chinoin.webp", alt: "Chinoin" },
+  { src: "/client-logos/43.png", alt: "Laboratorios Silanes" },
+  { src: "/client-logos/47.png", alt: "Laboratorios Maver" },
   { src: "/client-logos/48.png", alt: "Haleon" },
   { src: "/client-logos/49.png", alt: "Armstrong" },
+  { src: "/client-logos/collins.png", alt: "Collins" },
+  { src: "/client-logos/46.png", alt: "Selder" },
+  { src: "/client-logos/allen.jpg", alt: "Allen" },
+  { src: "/client-logos/landsteiner.jpg", alt: "Landsteiner", supplied: true },
+  { src: "/client-logos/mondelez.jpg", alt: "Mondelez", supplied: true },
+  { src: "/client-logos/loreal.jpg", alt: "L'Oréal", supplied: true },
+  { src: "/client-logos/45.png", alt: "Neolpharma" },
 ];
 
 export function Header() {
@@ -114,8 +119,8 @@ function LogoMarqueeRow({ reverse = false }) {
     <div className={`logo-marquee ${reverse ? "is-reverse" : ""}`}>
       <div className="logo-marquee-track">
         {items.map((logo, index) => (
-          <div className="logo-chip" key={`${logo.alt}-${index}`}>
-            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          <div className={`logo-chip${logo.supplied ? " logo-chip--supplied" : ""}`} key={`${logo.alt}-${index}`} aria-hidden={index >= clientLogos.length ? true : undefined}>
+            <img src={logo.src} alt={index >= clientLogos.length ? "" : logo.alt} loading="lazy" />
           </div>
         ))}
       </div>
