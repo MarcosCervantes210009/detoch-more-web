@@ -1921,7 +1921,7 @@ body{color:#292326;background:#fff}
   filter:brightness(.9) contrast(1.18) saturate(.98) !important;
 }
 .logo-chip,.logo-chip:hover{filter:none !important;background:#eeeae7 !important;border-color:#d4ccca !important}
-.logo-chip img{filter:none !important;mix-blend-mode:normal !important}
+.logo-chip img{filter:none !important;mix-blend-mode:multiply !important}
 
 .finalp-page::before{background-image:none!important;background-color:#e8e2dd!important;filter:none!important}
 
